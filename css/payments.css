@@ -35,7 +35,7 @@
     background-color: #ff4444;
     color: white;
     padding: 15px 30px;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     z-index: 1000;
     animation: slideIn 0.3s ease-out;
@@ -63,35 +63,38 @@ body {
 .container {
     max-width: 600px;
     margin: 0 auto;
+    padding: 20px;
 }
 
 /* Стили для кнопок банков */
 .bank-button {
     width: 100%;
-    margin-bottom: 15px;
-    padding: 15px;
+    margin-bottom: 20px;
+    padding: 20px;
     border: none;
-    border-radius: 10px;
+    border-radius: 25px;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
     display: block;
     text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .bank-button:active {
     transform: scale(0.98);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
 }
 
 .button-content {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
 }
 
 /* Стили для логотипов банков */
 .bank-logo {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     flex-shrink: 0;
 }
 
@@ -99,33 +102,42 @@ body {
 .text-content {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
 }
 
 .bank-text {
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
+    color: white;
 }
 
-.phone-number {
-    font-size: 14px;
-    color: #666;
+.recipient {
+    font-size: 18px;
+    color: white;
+    opacity: 0.9;
 }
 
 /* Стили для конкретных банков */
 .sberbank {
     background-color: #21A038;
-    color: white;
 }
 
 .tinkoff {
     background-color: #FFDD2D;
-    color: #333;
 }
 
 .alfabank {
     background-color: #EF3124;
-    color: white;
+}
+
+/* Стили для дополнительной информации */
+.additional-info {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px;
+    color: #666;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
 /* Адаптивность для мобильных устройств */
@@ -134,21 +146,33 @@ body {
         padding: 10px;
     }
 
+    .container {
+        padding: 10px;
+    }
+
     .bank-button {
-        padding: 12px;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 20px;
     }
 
     .bank-logo {
-        width: 32px;
-        height: 32px;
+        width: 40px;
+        height: 40px;
     }
 
     .bank-text {
-        font-size: 14px;
+        font-size: 18px;
     }
 
-    .phone-number {
-        font-size: 12px;
+    .recipient {
+        font-size: 16px;
+    }
+
+    .additional-info {
+        font-size: 14px;
+        margin-top: 20px;
+        padding: 10px;
     }
 }
 
