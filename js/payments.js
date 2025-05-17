@@ -1,13 +1,16 @@
+// Константа с номером телефона
+const PHONE_NUMBER = '+79524912232';
+
 // Обработчики для кнопок банков
 const bankButtons = document.querySelectorAll('.bank-button');
 bankButtons.forEach(button => {
     button.addEventListener('click', function() {
-        const bank = this.getAttribute('data-bank');
-        const amount = document.getElementById('amount').value;
-        const comment = document.getElementById('comment').value;
+        const bank = this.classList.contains('sberbank') ? 'sber' : 
+                    this.classList.contains('tinkoff') ? 'tinkoff' : 
+                    this.classList.contains('alfabank') ? 'alfa' : null;
         
-        if (!amount || isNaN(amount) || parseFloat(amount) <= 0) {
-            showError('Пожалуйста, введите корректную сумму');
+        if (!bank) {
+            showError('Неизвестный банк');
             return;
         }
 
@@ -18,16 +21,13 @@ bankButtons.forEach(button => {
         let url;
         switch(bank) {
             case 'sber':
-                url = `https://online.sberbank.ru/CSAFront/service.do?srvUrl=transfers?start&amount=${amount}&comment=${encodeURIComponent(comment)}`;
+                url = `https://online.sberbank.ru/CSAFront/service.do?srvUrl=transfers?start&phone=${encodeURIComponent(PHONE_NUMBER)}`;
                 break;
             case 'tinkoff':
-                url = `https://www.tinkoff.ru/payments/persons/agreement/?amount=${amount}&comment=${encodeURIComponent(comment)}`;
+                url = `https://www.tinkoff.ru/payments/persons/agreement/?phone=${encodeURIComponent(PHONE_NUMBER)}`;
                 break;
-            case 'vtb':
-                url = `https://online.vtb.ru/i/sbor/?amount=${amount}&comment=${encodeURIComponent(comment)}`;
-                break;
-            case 'yoomoney':
-                url = `https://yoomoney.ru/to/?amount=${amount}&comment=${encodeURIComponent(comment)}`;
+            case 'alfa':
+                url = `https://alfabank.ru/payments/?phone=${encodeURIComponent(PHONE_NUMBER)}`;
                 break;
             default:
                 hideSpinner();
@@ -44,12 +44,18 @@ bankButtons.forEach(button => {
             let appUrl;
             if (bank === 'sber') {
                 if (isIOS) {
-                    appUrl = `budgetonline-ios://sbolonline/payments/p2p-by-phone-number?phoneNumber=${encodeURIComponent(comment)}`;
+                    appUrl = `budgetonline-ios://sbolonline/payments/p2p-by-phone-number?phoneNumber=${encodeURIComponent(PHONE_NUMBER)}`;
                 } else if (isAndroid) {
-                    appUrl = `intent://ru.sberbankmobile/payments/p2p?type=phone_number&requisiteNumber=${encodeURIComponent(comment)}`;
+                    appUrl = `intent://ru.sberbankmobile/payments/p2p?type=phone_number&requisiteNumber=${encodeURIComponent(PHONE_NUMBER)}`;
                 }
             } else if (bank === 'tinkoff') {
-                appUrl = `tinkoffbank://Main/TransferToPeople?targetAccountId=${encodeURIComponent(comment)}`;
+                appUrl = `tinkoffbank://Main/TransferToPeople?targetAccountId=${encodeURIComponent(PHONE_NUMBER)}`;
+            } else if (bank === 'alfa') {
+                if (isIOS) {
+                    appUrl = `alfabank://payments/phone?number=${encodeURIComponent(PHONE_NUMBER)}`;
+                } else if (isAndroid) {
+                    appUrl = `intent://ru.alfabank.mobile.android/payments/phone?number=${encodeURIComponent(PHONE_NUMBER)}`;
+                }
             }
 
             if (appUrl) {

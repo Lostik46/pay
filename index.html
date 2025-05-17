@@ -3,46 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Оплата</title>
+    <title>Банковские переводы</title>
     <link rel="stylesheet" href="css/payments.css">
 </head>
 <body>
     <div class="container">
-        <h1>Выберите способ оплаты</h1>
-        
-        <div class="payment-form">
-            <div class="form-group">
-                <label for="amount">Сумма платежа:</label>
-                <input type="number" id="amount" name="amount" min="1" step="0.01" required placeholder="Введите сумму">
+        <button class="bank-button sberbank">
+            <div class="button-content">
+                <svg class="bank-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="white" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                </svg>
+                <div class="text-content">
+                    <span class="bank-text">Перевод на Сбербанк</span>
+                    <span class="phone-number">+79524912232</span>
+                </div>
             </div>
-            
-            <div class="form-group">
-                <label for="comment">Комментарий к платежу:</label>
-                <input type="text" id="comment" name="comment" placeholder="Введите комментарий">
-            </div>
+        </button>
 
-            <div class="bank-buttons">
-                <button class="bank-button" data-bank="sber">
-                    <img src="img/sber.png" alt="Сбербанк">
-                    <span>Сбербанк</span>
-                </button>
-                
-                <button class="bank-button" data-bank="tinkoff">
-                    <img src="img/tinkoff.png" alt="Тинькофф">
-                    <span>Тинькофф</span>
-                </button>
-                
-                <button class="bank-button" data-bank="vtb">
-                    <img src="img/vtb.png" alt="ВТБ">
-                    <span>ВТБ</span>
-                </button>
-                
-                <button class="bank-button" data-bank="yoomoney">
-                    <img src="img/yoomoney.png" alt="ЮMoney">
-                    <span>ЮMoney</span>
-                </button>
+        <button class="bank-button tinkoff">
+            <div class="button-content">
+                <svg class="bank-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#333" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                </svg>
+                <div class="text-content">
+                    <span class="bank-text">Перевод на Тинькофф</span>
+                    <span class="phone-number">+79524912232</span>
+                </div>
             </div>
-        </div>
+        </button>
+        
+        <button class="bank-button alfabank">
+            <div class="button-content">
+                <svg class="bank-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="white" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                </svg>
+                <div class="text-content">
+                    <span class="bank-text">Перевод на Альфа-Банк</span>
+                    <span class="phone-number">+79524912232</span>
+                </div>
+            </div>
+        </button>
     </div>
 
     <script src="js/payments.js"></script>

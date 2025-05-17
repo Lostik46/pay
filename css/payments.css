@@ -52,57 +52,104 @@
     }
 }
 
-/* Улучшенные стили для кнопок банков */
+/* Основные стили */
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Стили для кнопок банков */
 .bank-button {
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: block;
+    text-align: left;
 }
 
 .bank-button:active {
-    transform: scale(0.95);
+    transform: scale(0.98);
 }
 
-.bank-button::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 5px;
-    height: 5px;
-    background: rgba(255, 255, 255, 0.5);
-    opacity: 0;
-    border-radius: 100%;
-    transform: scale(1, 1) translate(-50%);
-    transform-origin: 50% 50%;
+.button-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-.bank-button:active::after {
-    animation: ripple 0.6s ease-out;
+/* Стили для логотипов банков */
+.bank-logo {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
 }
 
-@keyframes ripple {
-    0% {
-        transform: scale(0, 0);
-        opacity: 0.5;
+/* Стили для текстового содержимого */
+.text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.bank-text {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.phone-number {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Стили для конкретных банков */
+.sberbank {
+    background-color: #21A038;
+    color: white;
+}
+
+.tinkoff {
+    background-color: #FFDD2D;
+    color: #333;
+}
+
+.alfabank {
+    background-color: #EF3124;
+    color: white;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
     }
-    100% {
-        transform: scale(20, 20);
-        opacity: 0;
+
+    .bank-button {
+        padding: 12px;
     }
-}
 
-/* Улучшенные стили для полей ввода */
-input[type="number"],
-input[type="text"] {
-    transition: all 0.3s ease;
-    border: 2px solid #e0e0e0;
-}
+    .bank-logo {
+        width: 32px;
+        height: 32px;
+    }
 
-input[type="number"]:focus,
-input[type="text"]:focus {
-    border-color: #3498db;
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+    .bank-text {
+        font-size: 14px;
+    }
+
+    .phone-number {
+        font-size: 12px;
+    }
 }
 
 /* Стили для мобильных устройств */
