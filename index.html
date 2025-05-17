@@ -3,52 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Банковские переводы</title>
+    <title>Оплата</title>
     <link rel="stylesheet" href="css/payments.css">
 </head>
 <body>
     <div class="container">
-        <button class="bank-button sberbank">
-            <div class="button-content">
-                <svg class="bank-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="white" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-                </svg>
-                <div class="text-content">
-                    <span class="bank-text">Перевод на Сбербанк</span>
-                    <span class="recipient">Алексей Ф.</span>
+        <div class="bank-buttons">
+            <button class="bank-button sberbank" onclick="openBankApp('sberbank')">
+                <div class="bank-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="white"/>
+                        <path d="M2 17L12 22L22 17" fill="white"/>
+                        <path d="M2 12L12 17L22 12" fill="white"/>
+                    </svg>
                 </div>
-            </div>
-        </button>
+                <div class="bank-content">
+                    <div class="bank-name">Сбербанк</div>
+                    <div class="bank-recipient">Получатель: ИП Иванов И.И.</div>
+                </div>
+            </button>
 
-        <button class="bank-button tinkoff">
-            <div class="button-content">
-                <svg class="bank-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="white" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-                </svg>
-                <div class="text-content">
-                    <span class="bank-text">Перевод на Тинькофф</span>
-                    <span class="recipient">Алексей Ф.</span>
+            <button class="bank-button tinkoff" onclick="openBankApp('tinkoff')">
+                <div class="bank-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="white"/>
+                        <path d="M2 17L12 22L22 17" fill="white"/>
+                        <path d="M2 12L12 17L22 12" fill="white"/>
+                    </svg>
                 </div>
-            </div>
-        </button>
-        
-        <button class="bank-button alfabank">
-            <div class="button-content">
-                <svg class="bank-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="white" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-                </svg>
-                <div class="text-content">
-                    <span class="bank-text">Перевод на Альфа-Банк</span>
-                    <span class="recipient">Алексей Ф.</span>
+                <div class="bank-content">
+                    <div class="bank-name">Тинькофф</div>
+                    <div class="bank-recipient">Получатель: ИП Иванов И.И.</div>
                 </div>
-            </div>
-        </button>
+            </button>
 
+            <button class="bank-button alfabank" onclick="openBankApp('alfabank')">
+                <div class="bank-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="white"/>
+                        <path d="M2 17L12 22L22 17" fill="white"/>
+                        <path d="M2 12L12 17L22 12" fill="white"/>
+                    </svg>
+                </div>
+                <div class="bank-content">
+                    <div class="bank-name">Альфа-Банк</div>
+                    <div class="bank-recipient">Получатель: ИП Иванов И.И.</div>
+                </div>
+            </button>
+        </div>
         <div class="additional-info">
-            Нет вашего банка? Сообщите нам и вскоре он появится
+            <p>Выберите банк для оплаты</p>
         </div>
     </div>
-
     <script src="js/payments.js"></script>
 </body>
 </html> 

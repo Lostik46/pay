@@ -55,131 +55,128 @@
 /* Основные стили */
 body {
     margin: 0;
-    padding: 20px;
-    font-family: Arial, sans-serif;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: #f5f5f5;
-    min-height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .container {
-    max-width: 600px;
     width: 100%;
-    margin: 0 auto;
+    max-width: 600px;
     padding: 20px;
+    box-sizing: border-box;
 }
 
-/* Стили для кнопок банков */
+.bank-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 .bank-button {
+    display: flex;
+    align-items: center;
     width: 100%;
-    margin-bottom: 20px;
-    padding: 20px;
+    padding: 15px;
     border: none;
-    border-radius: 25px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
-    display: block;
-    text-align: left;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.bank-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .bank-button:active {
-    transform: scale(0.98);
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
 }
 
-.button-content {
+.bank-logo {
+    margin-right: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-}
-
-/* Стили для логотипов банков */
-.bank-logo {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
     flex-shrink: 0;
 }
 
-/* Стили для текстового содержимого */
-.text-content {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    text-align: center;
+.bank-content {
+    flex-grow: 1;
+    text-align: left;
 }
 
-.bank-text {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
+.bank-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #333;
 }
 
-.recipient {
-    font-size: 18px;
-    color: white;
-    opacity: 0.9;
+.bank-recipient {
+    font-size: 14px;
+    color: #666;
 }
 
-/* Стили для конкретных банков */
 .sberbank {
-    background-color: #21A038;
+    background: linear-gradient(135deg, #21A038 0%, #1A8A2E 100%);
 }
 
 .tinkoff {
-    background-color: #FFDD2D;
+    background: linear-gradient(135deg, #FFDD2D 0%, #F4B731 100%);
 }
 
 .alfabank {
-    background-color: #EF3124;
+    background: linear-gradient(135deg, #EF3124 0%, #D52B1E 100%);
 }
 
-/* Стили для дополнительной информации */
+.sberbank .bank-name,
+.sberbank .bank-recipient,
+.tinkoff .bank-name,
+.tinkoff .bank-recipient,
+.alfabank .bank-name,
+.alfabank .bank-recipient {
+    color: white;
+}
+
 .additional-info {
+    margin-top: 20px;
     text-align: center;
-    margin-top: 30px;
-    padding: 15px;
     color: #666;
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: 14px;
 }
 
 /* Адаптивность для мобильных устройств */
 @media (max-width: 480px) {
-    body {
-        padding: 10px;
-    }
-
     .container {
-        padding: 10px;
+        padding: 15px;
     }
 
     .bank-button {
-        padding: 15px;
-        margin-bottom: 15px;
-        border-radius: 20px;
+        padding: 12px;
     }
 
     .bank-logo {
-        width: 40px;
-        height: 40px;
+        width: 32px;
+        height: 32px;
+        margin-right: 12px;
     }
 
-    .bank-text {
-        font-size: 18px;
+    .bank-name {
+        font-size: 15px;
     }
 
-    .recipient {
-        font-size: 16px;
-    }
-
-    .additional-info {
-        font-size: 14px;
-        margin-top: 20px;
-        padding: 10px;
+    .bank-recipient {
+        font-size: 13px;
     }
 }
 
