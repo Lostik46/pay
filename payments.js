@@ -30,20 +30,19 @@ class BrowserDetector {
 class PaymentHandler {
     static DEFAULT_TIMEOUT = 2000;
     
-    static async openBankApp(scheme, phoneNumber, onSuccess, onError) {
+    static async openBankApp(bankId, scheme, phoneNumber, onSuccess, onError) {
         const uri = `${scheme}://${phoneNumber}`;
         
         try {
             if (BrowserDetector.isDesktop()) {
                 // Для ПК открываем веб-версию банка
                 const bankUrls = {
-                    sber: 'https://online.sberbank.ru',
+                    sberbank: 'https://online.sberbank.ru',
                     tinkoff: 'https://www.tinkoff.ru',
-                    alfa: 'https://alfabank.ru'
+                    alfabank: 'https://alfabank.ru'
                 };
                 
-                const bankId = Object.keys(bankUrls).find(key => scheme.includes(key));
-                if (bankId && bankUrls[bankId]) {
+                if (bankUrls[bankId]) {
                     window.open(bankUrls[bankId], '_blank');
                     onSuccess();
                 } else {
@@ -75,7 +74,7 @@ class PaymentHandler {
 
 // Bank-specific handlers
 const Banks = {
-    sber: {
+    sberbank: {
         scheme: 'sberbank',
         phoneNumber: '+79524912232',
         name: 'Сбербанк'
@@ -85,7 +84,7 @@ const Banks = {
         phoneNumber: '+79524912232',
         name: 'Тинькофф'
     },
-    alfa: {
+    alfabank: {
         scheme: 'alfabank',
         phoneNumber: '+79524912232',
         name: 'Альфа-Банк'
@@ -100,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
             button.addEventListener('click', () => {
                 const bank = Banks[bankId];
                 PaymentHandler.openBankApp(
+                    bankId,
                     bank.scheme,
                     bank.phoneNumber,
                     () => {
